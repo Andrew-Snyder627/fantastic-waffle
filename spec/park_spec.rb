@@ -86,7 +86,7 @@ RSpec.describe Park do
         expect(park.passenger_names).to eq(["Andrew", "Charlie", "Jude", "Taylor"])
     end
 
-    xit 'can create a list of minors sorted aplhabetically' do
+    it 'can create a list of minors sorted aplhabetically' do
         park = Park.new("Great Sand Dunes", 30)
         vehicle1 = Vehicle.new("2001", "Honda", "Civic")
         vehicle2 = Vehicle.new("2012", "Toyota", "Tacoma")
@@ -108,7 +108,7 @@ RSpec.describe Park do
         expect(park.minors).to eq(["Emily", "Taylor"])
     end
 
-    xit 'can create a list of adults sorted alphabetically' do
+    it 'can create a list of adults sorted alphabetically' do
         park = Park.new("Great Sand Dunes", 30)
         vehicle1 = Vehicle.new("2001", "Honda", "Civic")
         vehicle2 = Vehicle.new("2012", "Toyota", "Tacoma")
@@ -122,7 +122,7 @@ RSpec.describe Park do
         vehicle1.add_passenger(emily)
         vehicle2.add_passenger(jude)
         vehicle2.add_passenger(taylor)
-        vehilce2.add_passenger(andrew)
+        vehicle2.add_passenger(andrew)
 
         park.admit_vehicle(vehicle1) #admiting vehicles
         park.admit_vehicle(vehicle2)
