@@ -30,4 +30,12 @@ class Park
         
         adults.count * @admission_price
     end
+
+    def passenger_names
+        sorted_passengers = all_passengers.map do |passenger|
+            passenger.name
+        end
+
+        sorted_passengers.sort
+    end
 end

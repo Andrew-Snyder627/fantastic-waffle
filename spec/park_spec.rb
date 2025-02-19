@@ -65,4 +65,68 @@ RSpec.describe Park do
 
         expect(park.revenue).to eq(60)
     end
+
+    it 'can create a list of all passenger names sorted alphabetically' do
+        park = Park.new("Great Sand Dunes", 30)
+        vehicle1 = Vehicle.new("2001", "Honda", "Civic")
+        vehicle2 = Vehicle.new("2012", "Toyota", "Tacoma")
+        charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+        jude = Passenger.new({"name" => "Jude", "age" => 20})
+        taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+        andrew = Passenger.new({"name" => "Andrew", "age" => 27})
+
+        vehicle1.add_passenger(charlie) #assigning passengers to vehicles
+        vehicle2.add_passenger(jude)
+        vehicle2.add_passenger(taylor)
+        vehicle2.add_passenger(andrew)
+
+        park.admit_vehicle(vehicle1) #admiting vehicles
+        park.admit_vehicle(vehicle2)
+
+        expect(park.passenger_names).to eq(["Andrew", "Charlie", "Jude", "Taylor"])
+    end
+
+    xit 'can create a list of minors sorted aplhabetically' do
+        park = Park.new("Great Sand Dunes", 30)
+        vehicle1 = Vehicle.new("2001", "Honda", "Civic")
+        vehicle2 = Vehicle.new("2012", "Toyota", "Tacoma")
+        charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+        jude = Passenger.new({"name" => "Jude", "age" => 20})
+        taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+        andrew = Passenger.new({"name" => "Andrew", "age" => 27})
+        emily = Passenger.new({"name" => "Emily", "age" => 17})
+
+        vehicle1.add_passenger(charlie) #assigning passengers to vehicles
+        vehicle1.add_passenger(emily)
+        vehicle2.add_passenger(jude)
+        vehicle2.add_passenger(taylor)
+        vehicle2.add_passenger(andrew)
+
+        park.admit_vehicle(vehicle1) #admiting vehicles
+        park.admit_vehicle(vehicle2)
+
+        expect(park.minors).to eq(["Emily", "Taylor"])
+    end
+
+    xit 'can create a list of adults sorted alphabetically' do
+        park = Park.new("Great Sand Dunes", 30)
+        vehicle1 = Vehicle.new("2001", "Honda", "Civic")
+        vehicle2 = Vehicle.new("2012", "Toyota", "Tacoma")
+        charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+        jude = Passenger.new({"name" => "Jude", "age" => 20})
+        taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+        andrew = Passenger.new({"name" => "Andrew", "age" => 27})
+        emily = Passenger.new({"name" => "Emily", "age" => 17})
+
+        vehicle1.add_passenger(charlie) #assigning passengers to vehicles
+        vehicle1.add_passenger(emily)
+        vehicle2.add_passenger(jude)
+        vehicle2.add_passenger(taylor)
+        vehilce2.add_passenger(andrew)
+
+        park.admit_vehicle(vehicle1) #admiting vehicles
+        park.admit_vehicle(vehicle2)
+
+        expect(park.adults).to eq(["Andrew", "Charlie", "Jude"])
+    end
 end
